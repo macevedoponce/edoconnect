@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_inicio">
+
+    <fragment
+        android:id="@+id/navigation_pregunta"
+        android:name="com.acevedo.educonnect.ui.docente.PreguntasFragment"
+        android:label="@string/title_preguntas"
+        tools:layout="@layout/fragment_preguntas" />
+
+    <fragment
+        android:id="@+id/navigation_curso"
+        android:name="com.acevedo.educonnect.ui.docente.CursosFragment"
+        android:label="@string/title_cursos"
+        tools:layout="@layout/fragment_cursos" />
+
+    <fragment
+        android:id="@+id/navigation_inicio"
+        android:name="com.acevedo.educonnect.ui.docente.InicioFragment"
+        android:label="@string/title_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/navigation_repaso"
+        android:name="com.acevedo.educonnect.ui.docente.RepasoFragment"
+        android:label="@string/title_repasos"
+        tools:layout="@layout/fragment_repaso" />
+
+    <fragment
+        android:id="@+id/navigation_cuenta"
+        android:name="com.acevedo.educonnect.ui.docente.CuentaFragment"
+        android:label="@string/title_cuenta"
+        tools:layout="@layout/fragment_cuenta" />
+
+</navigation>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EduConnect</string>
+
+    <!-- Login Activity -->
+    <string name="derReservados">Todos los derechos reservados</string>
+    <string name="Password">password</string>
+    <string name="User">user</string>
+    <string name="helperUser">Ej. 78451245</string>
+    <string name="Login">Iniciar Sesión</string>
+    <string name="Iniciar">Iniciar</string>
+
+    <!--    Fragment Docentes-->
+    <string name="title_preguntas">Preguntas</string>
+    <string name="title_cursos">Cursos</string>
+    <string name="title_inicio">Inicio</string>
+    <string name="title_repasos">Repasos</string>
+    <string name="title_cuenta">Cuenta</string>
+
+</resources>
