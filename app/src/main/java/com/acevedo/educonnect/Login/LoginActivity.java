@@ -92,9 +92,9 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("dni", dni);
                         editor.putString("password", password);
                         editor.putInt("id", jsonObject.getInt("id"));
-                        editor.putString("nombre", jsonObject.getString("nombre"));
-                        editor.putString("apellido", jsonObject.getString("apellido"));
-                        editor.putString("rol", jsonObject.getString("rol"));
+                        editor.putString("nombres", jsonObject.getString("nombres"));
+                        editor.putString("apellidos", jsonObject.getString("apellidos"));
+                        editor.putInt("rol", jsonObject.getInt("rol"));
                         editor.putBoolean("session", true);
 
                     } catch (Exception e) {
