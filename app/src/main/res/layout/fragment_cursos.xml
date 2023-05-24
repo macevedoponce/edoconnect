@@ -8,50 +8,10 @@
     android:gravity="center"
     tools:context=".ui.docente.CursosFragment">
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCursos"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:elevation="10dp">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:elevation="10dp">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:elevation="10dp">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="5dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:elevation="10dp">
-
-    </androidx.cardview.widget.CardView>
-
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>
