@@ -1,6 +1,7 @@
 package com.acevedo.educonnect.ui.docente;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -17,6 +18,7 @@ import com.acevedo.educonnect.Adapters.CursoAdapter;
 import com.acevedo.educonnect.Clases.Curso;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -86,7 +88,11 @@ public class CursosFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
 
-                            //mostrarProductos(view);
+                            int id = cursosList.get(rvCursos.getChildAdapterPosition(view)).getId();
+
+                            Intent i = new Intent(getContext(), ListTareasActivity.class);
+                            i.putExtra("id_curso",id);
+                            startActivity(i);
                         }
                     });
 

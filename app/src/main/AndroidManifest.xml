@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.docente.curso.tarea.ListTareasActivity"
+            android:exported="false" />
+        <activity
             android:name=".Splash.SplashDocenteActivity"
             android:exported="false" />
         <activity

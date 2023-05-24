@@ -16,4 +16,14 @@
     <string name="title_repasos">Repasos</string>
     <string name="title_cuenta">Cuenta</string>
 
+    <!--    botones-->
+    <string name="volver">Volver</string>
+
+    <!--    Tarea-->
+    <string name="tarea">Tareas</string>
+    <string name="menu_pregunta">¡Que desea hacer!</string>
+    <string name="ver_entregas">Ver Entregables</string>
+    <string name="vista_previa">Vista Previa</string>
+    <string name="editar">Editar</string>
+    <string name="fecha_limite">Fecha Limite:</string>
 </resources>
