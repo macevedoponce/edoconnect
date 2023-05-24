@@ -32,6 +32,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,17 +44,19 @@ import java.util.List;
 public class ListTareasActivity extends AppCompatActivity {
 
     LinearLayout llRegresar;
+    FloatingActionButton fabAgregarTarea;
     RecyclerView rvTareas;
     RequestQueue requestQueue;
     List<Tarea> tareaList;
 
-
+    int id_curso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_tareas);
         llRegresar = findViewById(R.id.llRegresar);
+        fabAgregarTarea = findViewById(R.id.fabAgregarTarea);
         rvTareas = findViewById(R.id.rvTareas);
         rvTareas.setHasFixedSize(true);
         rvTareas.setLayoutManager(new LinearLayoutManager(this));
@@ -67,10 +70,19 @@ public class ListTareasActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        fabAgregarTarea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListTareasActivity.this,CrearTareaActivity.class);
+                intent.putExtra("id_curso",id_curso);
+                startActivity(intent);
+            }
+        });
     }
 
     private void cargarTareas() {
-        int id_curso = getIntent().getIntExtra("id_curso",0);
+        id_curso = getIntent().getIntExtra("id_curso",0);
         String url = Util.RUTA_TAREAS+"?id_curso="+id_curso;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
