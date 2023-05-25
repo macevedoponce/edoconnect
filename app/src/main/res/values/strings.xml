@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">EduConnect</string>
+
+    <!-- Login Activity -->
+    <string name="derReservados">Todos los derechos reservados</string>
+    <string name="Password">password</string>
+    <string name="User">user</string>
+    <string name="helperUser">Ej. 78451245</string>
+    <string name="Login">Iniciar Sesión</string>
+    <string name="Iniciar">Iniciar</string>
+
+    <!--    Fragment Docentes-->
+    <string name="title_preguntas">Preguntas</string>
+    <string name="title_cursos">Cursos</string>
+    <string name="title_inicio">Inicio</string>
+    <string name="title_repasos">Repasos</string>
+    <string name="title_cuenta">Cuenta</string>
+
+    <!--    botones-->
+    <string name="volver">Volver</string>
+    <string name="aceptar">Aceptar</string>
+
+    <!--    Tarea-->
+    <string name="tarea">Tareas</string>
+    <string name="menu_pregunta">¡Que desea hacer!</string>
+    <string name="ver_entregas">Ver Entregables</string>
+    <string name="vista_previa">Vista Previa</string>
+    <string name="editar">Editar</string>
+    <string name="fecha_limite">Fecha Limite:</string>
+<!--    crea tarea-->
+    <string name="crear_tarea">Crear Tarea</string>
+    <string name="ingrese_titulo_tarea">Ingrese Titulo</string>
+    <string name="descripcion_tarea">Descripción de tarea</string>
+    <string name="fecha_limite_entrega">Fecha limite de entrega</string>
+</resources>

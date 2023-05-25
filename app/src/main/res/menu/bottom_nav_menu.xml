@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_pregunta"
+        android:icon="@drawable/ic_aprende"
+        android:title="@string/title_preguntas" />
+
+    <item
+        android:id="@+id/navigation_curso"
+        android:icon="@drawable/ic_cursos"
+        android:title="@string/title_cursos" />
+
+    <item
+        android:id="@+id/navigation_inicio"
+        android:icon="@drawable/ic_inicio"
+        android:title="@string/title_inicio" />
+
+    <item
+        android:id="@+id/navigation_repaso"
+        android:icon="@drawable/ic_repasos"
+        android:title="@string/title_repasos" />
+
+    <item
+        android:id="@+id/navigation_cuenta"
+        android:icon="@drawable/ic_user"
+        android:title="@string/title_cuenta" />
+
+</menu>
