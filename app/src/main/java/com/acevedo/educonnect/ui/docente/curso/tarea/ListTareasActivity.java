@@ -15,18 +15,16 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.acevedo.educonnect.Adapters.CursoAdapter;
 import com.acevedo.educonnect.Adapters.TareaAdapter;
-import com.acevedo.educonnect.Clases.Curso;
 import com.acevedo.educonnect.Clases.Tarea;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.ui.docente.curso.entregaTarea.ListEntregaTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -157,9 +155,11 @@ public class ListTareasActivity extends AppCompatActivity {
         cvVerEntregables.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent i = new Intent(RegistrarCompraActivity.this, MainActivity.class);
-//                startActivity(i);
-//                finish();
+                dialog.dismiss();
+                Intent i = new Intent(ListTareasActivity.this, ListEntregaTareasActivity.class);
+                i.putExtra("titulo", titulo);
+                i.putExtra("id_tarea", id);
+                startActivity(i);
             }
         });
 

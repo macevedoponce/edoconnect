@@ -7,4 +7,5 @@ public class Util {
     public static final String RUTA_TAREAS=RUTA+"/list_tareas.php";
     public static final String RUTA_CREAR_TAREA=RUTA+"/crear_tarea.php";
     public static final String RUTA_ACTUALIZAR_TAREA=RUTA+"/actualizar_tarea.php";
+    public static final String RUTA_ENTREGA_TAREAS=RUTA+"/list_entregas_tarea.php";
 }

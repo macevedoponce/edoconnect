@@ -29,13 +29,12 @@
     <string name="editar">Editar</string>
     <string name="fecha_limite">Fecha Limite:</string>
 
-<!--    crea tarea-->
+    <!--    crea tarea-->
     <string name="crear_tarea">Crear Tarea</string>
     <string name="ingrese_titulo_tarea">Ingrese Titulo</string>
     <string name="descripcion_tarea">Descripción de tarea</string>
     <string name="fecha_limite_entrega">Fecha limite de entrega</string>
     <string name="registro_exitoso">Tarea registrada correctamente</string>
-
 
 
 </resources>
