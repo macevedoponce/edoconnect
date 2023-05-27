@@ -76,9 +76,6 @@ public class ListTareasActivity extends AppCompatActivity {
             }
         });
 
-
-        //actualizar cuando
-
         llRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -177,9 +174,13 @@ public class ListTareasActivity extends AppCompatActivity {
         cvEditarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent i = new Intent(RegistrarCompraActivity.this, MainActivity.class);
-//                startActivity(i);
-//                finish();
+                Intent i = new Intent(ListTareasActivity.this, CrearTareaActivity.class);
+                i.putExtra("titulo",titulo);
+                i.putExtra("descripcion",descripcion);
+                i.putExtra("fecha_limite",fecha_limite);
+                i.putExtra("id",id);
+                startActivity(i);
+                dialog.dismiss();
             }
         });
 

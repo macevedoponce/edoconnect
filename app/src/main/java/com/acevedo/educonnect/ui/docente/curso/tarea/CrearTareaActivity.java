@@ -35,6 +35,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,14 +48,11 @@ public class CrearTareaActivity extends AppCompatActivity {
 
     LinearLayout llRegresar;
     CardView cvCrearTarea,cvFechaLimiteEntrega;
-    TextView tvFechaLimiteEntrega,tvFLE;
+    TextView tvFechaLimiteEntrega,tvFLE,tvTitleActivity,tvButtonName;
     TextInputLayout tiltitulo,tilDescripcion;
     TextInputEditText edtTitulo,edtDescripcion;
-
     ToggleButton tbMictitulo, tbMicDescripcion;
-
     String fechaSeleccionada = "";
-
     RequestQueue requestQueue;
 
 
@@ -60,6 +60,8 @@ public class CrearTareaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_tarea);
+        tvTitleActivity = findViewById(R.id.tvTitleActivity);
+        tvButtonName = findViewById(R.id.tvButtonName);
         llRegresar = findViewById(R.id.llRegresar);
         cvCrearTarea = findViewById(R.id.cvCrearTarea);
         requestQueue = Volley.newRequestQueue(this);
@@ -72,6 +74,22 @@ public class CrearTareaActivity extends AppCompatActivity {
         edtDescripcion = findViewById(R.id.edtDescripcion);
         tbMictitulo = findViewById(R.id.tbMictitulo);
         tbMicDescripcion = findViewById(R.id.tbMicDescripcion);
+
+        //obtener datos
+        //validar si hay datos para actualizar
+        int id_r = getIntent().getIntExtra("id",0);
+        String titulo_r = getIntent().getStringExtra("titulo");
+        String descripcion_r = getIntent().getStringExtra("descripcion");
+        String fecha_limite_r = getIntent().getStringExtra("fecha_limite");
+
+        if(id_r != 0){
+            tvTitleActivity.setText("Editar Tarea");
+            tvButtonName.setText("Editar Tarea");
+            edtTitulo.setText(titulo_r);
+            edtDescripcion.setText(descripcion_r);
+            fechaSeleccionada = fecha_limite_r;
+            tvFechaLimiteEntrega.setText(fecha_limite_r);
+        }
 
         tbMictitulo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +117,12 @@ public class CrearTareaActivity extends AppCompatActivity {
         cvCrearTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                crearTarea();
+                if(id_r != 0){
+                    actualizarTarea(id_r);
+                }else{
+                    crearTarea();
+                }
+
             }
         });
 
@@ -113,6 +136,49 @@ public class CrearTareaActivity extends AppCompatActivity {
                 showDialogFecha(year,month,day);
             }
         });
+
+    }
+
+    private void actualizarTarea(int id_r) {
+        String url = Util.RUTA_ACTUALIZAR_TAREA;
+        String titulo = edtTitulo.getText().toString();
+        String descripcion = edtDescripcion.getText().toString();
+        if(!titulo.isEmpty()) {
+            if(!descripcion.isEmpty()) {
+                if(fechaSeleccionada != null && fechaSeleccionada.length() > 0) {
+                    StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            dialogRegistroExitoso(titulo,descripcion,fechaSeleccionada,response);
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(CrearTareaActivity.this, "error " + error, Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("titulo", titulo);
+                            params.put("descripcion", descripcion);
+                            params.put("fecha_limite", fechaSeleccionada);
+                            params.put("id_tarea", String.valueOf(id_r));
+                            return params;
+                        }
+                    };
+                    requestQueue.add(request);
+                }else{
+                    tvFechaLimiteEntrega.setText("Seleccione una fecha limite para la tarea");
+                    tvFechaLimiteEntrega.setTextColor(Color.RED);
+                }
+
+            }else{
+                tilDescripcion.setError("Ingrese descripcion");
+            }
+        }else{
+            tiltitulo.setError("Ingrese titulo");
+        }
     }
 
     private void iniciarDeteccion(String btn) {
@@ -214,14 +280,13 @@ public class CrearTareaActivity extends AppCompatActivity {
         int id_curso = getIntent().getIntExtra("id_curso",0);
         String titulo = edtTitulo.getText().toString();
         String descripcion = edtDescripcion.getText().toString();
-        Toast.makeText(this, "fecha:" + fechaSeleccionada, Toast.LENGTH_SHORT).show();
         if(!titulo.isEmpty()) {
             if(!descripcion.isEmpty()) {
                 if(fechaSeleccionada != null && fechaSeleccionada.length() > 0) {
                     StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            dialogRegistroExitoso(titulo,descripcion,fechaSeleccionada,id_curso);
+                            dialogRegistroExitoso(titulo,descripcion,fechaSeleccionada,response);
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -254,15 +319,24 @@ public class CrearTareaActivity extends AppCompatActivity {
         }
     }
 
-    private void dialogRegistroExitoso(String titulo, String descripcion, String fechaLimite, int id_curso) {
+    private void dialogRegistroExitoso(String titulo, String descripcion, String fechaLimite, String response) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_registro_tarea_exitoso);
 
+        TextView tvRespuestaServidor = dialog.findViewById(R.id.tvRespuestaServidor);
         TextView tvTitulo = dialog.findViewById(R.id.tvTitulo);
         TextView tvDescripcion = dialog.findViewById(R.id.tvDescripcion);
         TextView tvFechaLimite = dialog.findViewById(R.id.tvFechaLimite);
         CardView cvAceptar = dialog.findViewById(R.id.cvAceptar);
+
+        try {
+            JSONObject response_api = new JSONObject(response);
+            String message = response_api.getString("message");
+            tvRespuestaServidor.setText(message);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         tvTitulo.setText(titulo);
         tvDescripcion.setText(descripcion);
@@ -271,10 +345,6 @@ public class CrearTareaActivity extends AppCompatActivity {
         cvAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                Intent intent = new Intent(CrearTareaActivity.this, ListTareasActivity.class);
-//                intent.putExtra("id_curso",id_curso);
-//                startActivity(intent);
                 onBackPressed();
                 finish();
             }
