@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnEntrar;
     TextView txtLogin;
     RequestQueue requestQueue;
-    JsonObjectRequest jsonObjectRequest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     "&contrasena=" + password;
 
             url = url.replace(" ", "%20");
-            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
 

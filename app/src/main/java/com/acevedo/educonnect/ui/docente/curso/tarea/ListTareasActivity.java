@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -43,6 +44,7 @@ import java.util.List;
 
 public class ListTareasActivity extends AppCompatActivity {
 
+    SwipeRefreshLayout srlActualizarTareas;
     LinearLayout llRegresar;
     FloatingActionButton fabAgregarTarea;
     RecyclerView rvTareas;
@@ -55,6 +57,7 @@ public class ListTareasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_tareas);
+        srlActualizarTareas = findViewById(R.id.srlActualizarTareas);
         llRegresar = findViewById(R.id.llRegresar);
         fabAgregarTarea = findViewById(R.id.fabAgregarTarea);
         rvTareas = findViewById(R.id.rvTareas);
@@ -63,6 +66,18 @@ public class ListTareasActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         tareaList = new ArrayList<>();
         cargarTareas();
+
+        srlActualizarTareas.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                tareaList.clear();
+                cargarTareas();
+                srlActualizarTareas.setRefreshing(false);
+            }
+        });
+
+
+        //actualizar cuando
 
         llRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
