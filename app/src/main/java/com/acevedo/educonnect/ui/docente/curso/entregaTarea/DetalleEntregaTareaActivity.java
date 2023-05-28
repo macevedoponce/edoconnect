@@ -125,7 +125,9 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
                 nota_estudiante--;
                 break;
             case R.id.cvFullScreen:
-                Toast.makeText(this, "pantalla completa", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(DetalleEntregaTareaActivity.this,FullScreenTareaActivity.class);
+                intent.putExtra("url_trabajo", url_trabajo);
+                startActivity(intent);
                 break;
             case R.id.cvGuardarNota:
                 guardarNota();
