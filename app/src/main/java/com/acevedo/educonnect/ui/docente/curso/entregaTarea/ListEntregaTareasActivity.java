@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -15,6 +16,7 @@ import com.acevedo.educonnect.Adapters.EntregaTareaAdapter;
 import com.acevedo.educonnect.Clases.EntregaTareas;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -98,8 +100,21 @@ public class ListEntregaTareasActivity extends AppCompatActivity {
                     adapter.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            int id_entrega = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getId();
+                            int nota = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getNota();
+                            String nombres = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getUs_nombres();
+                            String apellidos = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getUs_apellidos();
+                            String retroalimentaicon = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getRetroalimentacion();
+                            String url_trabajo = entregaTareasList.get(rvEntregaTareas.getChildAdapterPosition(view)).getUrl_trabajo();
 
-                            //dialogMenu(view);
+                            Intent i = new Intent(ListEntregaTareasActivity.this, DetalleEntregaTareaActivity.class);
+                            i.putExtra("id_entrega", id_entrega);
+                            i.putExtra("nota", nota);
+                            i.putExtra("nombres", nombres);
+                            i.putExtra("apellidos", apellidos);
+                            i.putExtra("retroalimentaicon", retroalimentaicon);
+                            i.putExtra("url_trabajo", url_trabajo);
+                            startActivity(i);
                         }
                     });
 

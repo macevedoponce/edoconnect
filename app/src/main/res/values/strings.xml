@@ -9,6 +9,9 @@
     <string name="helperUser">Ej. 78451245</string>
     <string name="Login">Iniciar Sesión</string>
     <string name="Iniciar">Iniciar</string>
+    <string name="retroalimentacion">Retroalimentacion</string>
+    <string name="guardar">Guardar</string>
+
 
     <!--    Fragment Docentes-->
     <string name="title_preguntas">Preguntas</string>
@@ -35,6 +38,7 @@
     <string name="descripcion_tarea">Descripción de tarea</string>
     <string name="fecha_limite_entrega">Fecha limite de entrega</string>
     <string name="registro_exitoso">Tarea registrada correctamente</string>
+
 
 
 </resources>
