@@ -1,6 +1,7 @@
 package com.acevedo.educonnect.Adapters;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.acevedo.educonnect.Clases.EntregaTareas;
@@ -23,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -60,10 +64,12 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
         EntregaTareas entregaTareas = entregaTareaList.get(position);
         String nombres = entregaTareas.getUs_nombres();
         String apellidos = entregaTareas.getUs_apellidos();
+        String retroalimentacion = entregaTareas.getRetroalimentacion();
         String url_trabajo = entregaTareas.getUrl_trabajo();
 
         holder.setImagen(url_trabajo);
         holder.setNombreEstudiante(nombres, apellidos);
+        holder.setEstadoEntrega(retroalimentacion);
 
     }
 
@@ -81,6 +87,7 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
 
         TextView tvEstudiante;
         ImageView ivEntregaTarea;
+        MaterialCardView cvEntregaTarea;
 
         View view;
 
@@ -90,6 +97,7 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
             view = itemView;
             tvEstudiante = view.findViewById(R.id.tvEstudiante);
             ivEntregaTarea = view.findViewById(R.id.ivEntregaTarea);
+            cvEntregaTarea = view.findViewById(R.id.cvEntregaTarea);
         }
 
         public void setImagen(String url_trabajo) {
@@ -98,6 +106,20 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
 
         public void setNombreEstudiante(String nombres, String apellidos) {
             tvEstudiante.setText(nombres +" "+apellidos);
+        }
+
+        public void setEstadoEntrega(String retroalimentacion) {
+            if(retroalimentacion.length() >= 10){
+
+                float strokeWidthInSp = 4f; // Valor deseado en sp
+
+                float strokeWidthInPixels = TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_SP, strokeWidthInSp, context.getResources().getDisplayMetrics()
+                );
+
+                cvEntregaTarea.setStrokeWidth((int) strokeWidthInPixels);
+                cvEntregaTarea.setStrokeColor(ContextCompat.getColor(context, R.color.success));
+            }
         }
     }
 }

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvEntregaTarea"
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -13,6 +13,7 @@
         app:cardElevation="6dp"
         app:cardCornerRadius="16dp"
         android:layout_margin="12dp"
+        app:rippleColor="@color/selected"
         android:foreground="?attr/selectableItemBackground">
 
         <RelativeLayout
@@ -48,6 +49,7 @@
             android:textAlignment="center"
             android:textSize="20sp" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
 
 </LinearLayout>

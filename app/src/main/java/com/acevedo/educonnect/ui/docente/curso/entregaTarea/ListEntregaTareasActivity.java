@@ -34,7 +34,7 @@ import java.util.List;
 public class ListEntregaTareasActivity extends AppCompatActivity {
 
     LinearLayout llRegresar;
-    TextView tvTituloTarea;
+    TextView tvTituloTarea,tvContenidoVacio;
     SwipeRefreshLayout srlActualizarEntregaTareas;
     RecyclerView rvEntregaTareas;
     RequestQueue requestQueue;
@@ -45,6 +45,7 @@ public class ListEntregaTareasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrega_tareas);
+        tvContenidoVacio = findViewById(R.id.tvContenidoVacio);
         tvTituloTarea = findViewById(R.id.tvTituloTarea);
         llRegresar = findViewById(R.id.llRegresar);
         srlActualizarEntregaTareas = findViewById(R.id.srlActualizarEntregaTareas);
@@ -59,10 +60,9 @@ public class ListEntregaTareasActivity extends AppCompatActivity {
         srlActualizarEntregaTareas.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(ListEntregaTareasActivity.this, "actualizando rvEntregas", Toast.LENGTH_SHORT).show();
-//                tareaList.clear();
-//                cargarTareas();
-//                srlActualizarTareas.setRefreshing(false);
+                entregaTareasList.clear();
+                cargarEntregaTareas();
+                srlActualizarEntregaTareas.setRefreshing(false);
             }
         });
 
@@ -83,6 +83,8 @@ public class ListEntregaTareasActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                tvContenidoVacio.setVisibility(View.GONE);
+                rvEntregaTareas.setVisibility(View.VISIBLE);
                 try {
                     JSONArray jsonArray = response.getJSONArray("tareas_entregadas");
                     for(int i = 0; i<jsonArray.length();i++){
@@ -128,7 +130,8 @@ public class ListEntregaTareasActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ListEntregaTareasActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                rvEntregaTareas.setVisibility(View.GONE);
+                tvContenidoVacio.setVisibility(View.VISIBLE);
             }
         });
         requestQueue.add(jsonObjectRequest);

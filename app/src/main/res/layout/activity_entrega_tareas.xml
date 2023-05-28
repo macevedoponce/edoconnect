@@ -71,6 +71,20 @@
         android:textColor="@color/secondary"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/tvContenidoVacio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="No se encontro ninguna entrega"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:textColor="@color/secondary"
+        android:textSize="20sp" />
+
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/srlActualizarEntregaTareas"

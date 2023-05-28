@@ -257,7 +257,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
             case 100:
                 if(resultCode == RESULT_OK && data != null ){
                     ArrayList<String> resultado = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    Toast.makeText(this, resultado.get(0) + "", Toast.LENGTH_SHORT).show();
+                    edtRetroalimentacion.setText(resultado.get(0));
                 }
                 break;
         }

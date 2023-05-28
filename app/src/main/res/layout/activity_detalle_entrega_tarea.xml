@@ -184,7 +184,6 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/selected"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
 
@@ -194,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
                 android:text="17"
+                android:textColor="@color/primary"
                 android:inputType="number"
                 android:textSize="40sp"
                 android:layout_gravity="center"/>
@@ -209,7 +209,6 @@
             app:cardCornerRadius="9dp"
             android:clickable="true"
             android:focusable="true"
-            app:cardBackgroundColor="@color/selected"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cvNota" >
@@ -233,7 +232,6 @@
             app:cardCornerRadius="9dp"
             android:clickable="true"
             android:focusable="true"
-            app:cardBackgroundColor="@color/selected"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toStartOf="@id/cvMas"
             app:layout_constraintTop_toBottomOf="@id/cvNota" >
