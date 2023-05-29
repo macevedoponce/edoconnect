@@ -16,6 +16,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
     ImageView ivContenido;
     ToggleButton tbMicRetroalimenacion;
     RequestQueue requestQueue;
+    WebView webView;
 
     int nota_estudiante = 0;
 
@@ -65,6 +67,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_entrega_tarea);
         llRegresar = findViewById(R.id.llRegresar);
+        webView = findViewById(R.id.webView);
         tvEstudiante = findViewById(R.id.tvEstudiante);
         tvNota = findViewById(R.id.tvNota);
         cvFullScreen = findViewById(R.id.cvFullScreen);
@@ -100,7 +103,19 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
         }else{
             edtRetroalimentacion.setText("");
         }
-        Glide.with(this).load(url_trabajo).into(ivContenido);
+
+        if(url_trabajo.endsWith(".pdf")){
+            ivContenido.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=" + url_trabajo);
+
+        }else{
+            ivContenido.setVisibility(View.VISIBLE);
+            webView.setVisibility(View.GONE);
+            Glide.with(this).load(url_trabajo).into(ivContenido);
+        }
+        //Glide.with(this).load(url_trabajo).into(ivContenido);
     }
 
     private void obtenerDatos() {

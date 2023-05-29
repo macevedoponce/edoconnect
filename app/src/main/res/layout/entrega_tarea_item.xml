@@ -32,9 +32,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#46000000"
-                android:elevation="8dp">
+                android:elevation="8dp"/>
 
-            </View>
+
+
+
 
         </RelativeLayout>
 

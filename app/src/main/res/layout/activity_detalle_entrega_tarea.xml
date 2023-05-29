@@ -98,7 +98,14 @@
             <ImageView
                 android:id="@+id/ivContenido"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:scaleType="centerCrop"
+                android:layout_height="match_parent" />
+
+            <WebView
+                android:id="@+id/webView"
+                android:visibility="gone"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
 

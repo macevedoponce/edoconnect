@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import com.acevedo.educonnect.R;
 import com.bumptech.glide.Glide;
@@ -20,9 +21,11 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 
+
 public class FullScreenTareaActivity extends AppCompatActivity {
 
     CardView cvFullScreen;
+    WebView webView;
 
     SubsamplingScaleImageView imageView;
 
@@ -33,26 +36,39 @@ public class FullScreenTareaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_full_screen_tarea);
         cvFullScreen = findViewById(R.id.cvFullScreen);
         imageView = findViewById(R.id.imageView);
+        webView = findViewById(R.id.webView);
 
         String url_trabajo = getIntent().getStringExtra("url_trabajo");
 
-        // Aumentar el zoom
-        imageView.setScaleAndCenter(imageView.getMaxScale(), imageView.getCenter());
+        if(url_trabajo.endsWith(".pdf")){
+            imageView.setVisibility(View.GONE);
+            webView.setVisibility(View.VISIBLE);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=" + url_trabajo);
 
-        // Establecer límites de zoom mínimo y máximo
-        imageView.setMaxScale(10f); // Zoom máximo permitido
-        imageView.setMinScale(1f);  // Zoom mínimo permitido
+        }else{
+            imageView.setVisibility(View.VISIBLE);
+            webView.setVisibility(View.GONE);
+            // Aumentar el zoom
+            imageView.setScaleAndCenter(imageView.getMaxScale(), imageView.getCenter());
 
-        Glide.with(this)
-                .load(url_trabajo)
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(new SimpleTarget<Drawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
-                        imageView.setImage(ImageSource.bitmap(bitmap));
-                    }
-                });
+            // Establecer límites de zoom mínimo y máximo
+            imageView.setMaxScale(10f); // Zoom máximo permitido
+            imageView.setMinScale(1f);  // Zoom mínimo permitido
+
+            Glide.with(this)
+                    .load(url_trabajo)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(new SimpleTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
+                            imageView.setImage(ImageSource.bitmap(bitmap));
+                        }
+                    });
+
+        }
+
 
 
 

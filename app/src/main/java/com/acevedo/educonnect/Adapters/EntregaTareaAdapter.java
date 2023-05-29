@@ -2,35 +2,27 @@ package com.acevedo.educonnect.Adapters;
 
 import android.content.Context;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.acevedo.educonnect.Clases.EntregaTareas;
-import com.acevedo.educonnect.Clases.Tarea;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapter.EntregaTareaHolder> implements View.OnClickListener {
 
@@ -89,6 +81,7 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
         ImageView ivEntregaTarea;
         MaterialCardView cvEntregaTarea;
 
+
         View view;
 
         RequestQueue requestQueue;
@@ -98,10 +91,17 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
             tvEstudiante = view.findViewById(R.id.tvEstudiante);
             ivEntregaTarea = view.findViewById(R.id.ivEntregaTarea);
             cvEntregaTarea = view.findViewById(R.id.cvEntregaTarea);
+
         }
 
         public void setImagen(String url_trabajo) {
-            Glide.with(context).load(url_trabajo).into(ivEntregaTarea);
+
+           if(url_trabajo.endsWith(".pdf")){
+               Glide.with(context).load("https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/12/22/16401922123443.jpg").into(ivEntregaTarea);
+           }else{
+               Glide.with(context).load(url_trabajo).into(ivEntregaTarea);
+           }
+
         }
 
         public void setNombreEstudiante(String nombres, String apellidos) {
