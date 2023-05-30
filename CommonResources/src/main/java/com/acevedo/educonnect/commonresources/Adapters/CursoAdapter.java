@@ -1,4 +1,4 @@
-package com.acevedo.educonnect.Adapters;
+package com.acevedo.educonnect.commonresources.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.acevedo.educonnect.commonresources.Clases.Curso;
-import com.acevedo.educonnect.R;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -38,7 +38,7 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.CursoHolder>
     @NonNull
     @Override
     public CursoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(context).inflate(R.layout.curso_item, parent,false);
+        View mView = LayoutInflater.from(context).inflate(com.acevedo.educonnect.commonresources.R.layout.curso_item, parent,false);
         mView.setOnClickListener(this);
         return new CursoHolder(mView);
     }
@@ -74,9 +74,9 @@ public class CursoAdapter extends RecyclerView.Adapter<CursoAdapter.CursoHolder>
         public CursoHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
-            tvGradoSeccion = view.findViewById(R.id.tvGradoSeccion);
-            tvNombreCurso = view.findViewById(R.id.tvNombreCurso);
-            ivCurso = view.findViewById(R.id.ivCurso);
+            tvGradoSeccion = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvGradoSeccion);
+            tvNombreCurso = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvNombreCurso);
+            ivCurso = view.findViewById(com.acevedo.educonnect.commonresources.R.id.ivCurso);
 
         }
 

@@ -1,4 +1,4 @@
-package com.acevedo.educonnect.Adapters;
+package com.acevedo.educonnect.commonresources.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.acevedo.educonnect.commonresources.Clases.Tarea;
-import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,7 +46,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaHolder>
     @NonNull
     @Override
     public TareaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(context).inflate(R.layout.tarea_item, parent,false);
+        View mView = LayoutInflater.from(context).inflate(com.acevedo.educonnect.commonresources.R.layout.tarea_item, parent,false);
         mView.setOnClickListener(this);
         return new TareaHolder(mView);
     }
@@ -97,9 +96,9 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaHolder>
         public TareaHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
-            tvTituloTarea = view.findViewById(R.id.tvTituloTarea);
+            tvTituloTarea = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvTituloTarea);
             //rbEstadoTarea = view.findViewById(R.id.rbEstadoTarea);
-            tbEstadoTarea = view.findViewById(R.id.tbEstadoTarea);
+            tbEstadoTarea = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tbEstadoTarea);
             requestQueue = Volley.newRequestQueue(context);
         }
 

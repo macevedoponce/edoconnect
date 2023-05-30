@@ -20,9 +20,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.acevedo.educonnect.Adapters.CursoAdapter;
-import com.acevedo.educonnect.commonresources.Clases.Curso;
+import com.acevedo.educonnect.commonresources.Adapters.CursoAdapter;
 import com.acevedo.educonnect.R;
+import com.acevedo.educonnect.commonresources.Clases.Curso;
+
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.curso.asistencia.RegistrarAsistenciaActivity;
 import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
@@ -117,15 +118,15 @@ public class CursosFragment extends Fragment {
     private void dialogMenu(View view) {
         final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_menu_curso);
+        dialog.setContentView( com.acevedo.educonnect.commonresources.R.layout.dialog_menu_curso);
 
 
         //datos del item seleccionado
         int id = cursosList.get(rvCursos.getChildAdapterPosition(view)).getId();
 
 
-        CardView cvTareas = dialog.findViewById(R.id.cvTareas);
-        CardView cvAsistencia = dialog.findViewById(R.id.cvAsistencia);
+        CardView cvTareas = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvTareas);
+        CardView cvAsistencia = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvAsistencia);
 
         cvTareas.setOnClickListener(new View.OnClickListener() {
             @Override

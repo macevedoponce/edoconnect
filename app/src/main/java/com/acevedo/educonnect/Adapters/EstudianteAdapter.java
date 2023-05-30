@@ -44,7 +44,7 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Es
     @NonNull
     @Override
     public EstudianteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(context).inflate(R.layout.estudiante_item, parent,false);
+        View mView = LayoutInflater.from(context).inflate(com.acevedo.educonnect.commonresources.R.layout.estudiante_item, parent,false);
         mView.setOnClickListener(this);
         return new EstudianteHolder(mView);
     }
@@ -69,9 +69,9 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Es
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 // Mostrar la posición del RecyclerView
                 String estado;
-                if (i == R.id.rbTemprano) {
+                if (i == com.acevedo.educonnect.commonresources.R.id.rbTemprano) {
                     estado = "Temprano";
-                } else if (i == R.id.rbTarde) {
+                } else if (i == com.acevedo.educonnect.commonresources.R.id.rbTarde) {
                     estado = "Tarde";
                 } else {
                     estado = "Falta";
@@ -104,13 +104,13 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Es
         public EstudianteHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
-            tvDni = view.findViewById(R.id.tvDniEstudiante);
-            tvNombre = view.findViewById(R.id.tvNombreEstudiante);
-            tvApellido = view.findViewById(R.id.tvApellidoEstudiante);
-            rgAsistencia = view.findViewById(R.id.rgAsistencia);
-            rbTemprano = view.findViewById(R.id.rbTemprano);
-            rbTarde = view.findViewById(R.id.rbTarde);
-            rbFalta = view.findViewById(R.id.rbFalta);
+            tvDni = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvDniEstudiante);
+            tvNombre = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvNombreEstudiante);
+            tvApellido = view.findViewById(com.acevedo.educonnect.commonresources.R.id.tvApellidoEstudiante);
+            rgAsistencia = view.findViewById(com.acevedo.educonnect.commonresources.R.id.rgAsistencia);
+            rbTemprano = view.findViewById(com.acevedo.educonnect.commonresources.R.id.rbTemprano);
+            rbTarde = view.findViewById(com.acevedo.educonnect.commonresources.R.id.rbTarde);
+            rbFalta = view.findViewById(com.acevedo.educonnect.commonresources.R.id.rbFalta);
         }
 
         public void setDni(String dni) {
@@ -130,13 +130,13 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Es
 
             switch (estado){
                 case "Temprano":
-                    radioButtonIndex = R.id.rbTemprano;
+                    radioButtonIndex = com.acevedo.educonnect.commonresources.R.id.rbTemprano;
                     break;
                 case "Tarde":
-                    radioButtonIndex = R.id.rbTarde;
+                    radioButtonIndex = com.acevedo.educonnect.commonresources.R.id.rbTarde;
                     break;
                 case "Falta":
-                    radioButtonIndex = R.id.rbFalta;
+                    radioButtonIndex = com.acevedo.educonnect.commonresources.R.id.rbFalta;
                     break;
                 default:
                     radioButtonIndex = -1;

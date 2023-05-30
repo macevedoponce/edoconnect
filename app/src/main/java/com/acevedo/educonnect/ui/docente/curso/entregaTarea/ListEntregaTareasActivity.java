@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.acevedo.educonnect.Adapters.EntregaTareaAdapter;
+import com.acevedo.educonnect.commonresources.Adapters.EntregaTareaAdapter;
 import com.acevedo.educonnect.commonresources.Clases.EntregaTareas;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;

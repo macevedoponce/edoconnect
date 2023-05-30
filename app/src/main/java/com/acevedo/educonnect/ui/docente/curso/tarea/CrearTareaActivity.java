@@ -221,13 +221,13 @@ public class CrearTareaActivity extends AppCompatActivity {
     private void showDialogFecha(int year, int month, int day) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_fecha);
+        dialog.setContentView(com.acevedo.educonnect.commonresources.R.layout.dialog_fecha);
 
-        NumberPicker dia = dialog.findViewById(R.id.day);
-        NumberPicker mes = dialog.findViewById(R.id.month);
-        NumberPicker anio = dialog.findViewById(R.id.year);
-        ImageView btnClose = dialog.findViewById(R.id.btnClose);
-        CardView cvAceptar = dialog.findViewById(R.id.cvAceptar);
+        NumberPicker dia = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.day);
+        NumberPicker mes = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.month);
+        NumberPicker anio = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.year);
+        ImageView btnClose = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.btnClose);
+        CardView cvAceptar = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvAceptar);
 
         Meses.initMeses();
 
@@ -321,13 +321,13 @@ public class CrearTareaActivity extends AppCompatActivity {
     private void dialogRegistroExitoso(String titulo, String descripcion, String fechaLimite, String response) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_registro_tarea_exitoso);
+        dialog.setContentView(com.acevedo.educonnect.commonresources.R.layout.dialog_registro_tarea_exitoso);
 
-        TextView tvRespuestaServidor = dialog.findViewById(R.id.tvRespuestaServidor);
-        TextView tvTitulo = dialog.findViewById(R.id.tvTitulo);
-        TextView tvDescripcion = dialog.findViewById(R.id.tvDescripcion);
-        TextView tvFechaLimite = dialog.findViewById(R.id.tvFechaLimite);
-        CardView cvAceptar = dialog.findViewById(R.id.cvAceptar);
+        TextView tvRespuestaServidor = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvRespuestaServidor);
+        TextView tvTitulo = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvTitulo);
+        TextView tvDescripcion = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvDescripcion);
+        TextView tvFechaLimite = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvFechaLimite);
+        CardView cvAceptar = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvAceptar);
 
         try {
             JSONObject response_api = new JSONObject(response);

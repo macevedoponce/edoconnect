@@ -1,4 +1,4 @@
-package com.acevedo.educonnect.Adapters;
+package com.acevedo.educonnect.commonresources.Adapters;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.acevedo.educonnect.commonresources.Clases.EntregaTareas;
-import com.acevedo.educonnect.R;
+
+import com.acevedo.educonnect.commonresources.R;
 import com.android.volley.RequestQueue;
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
@@ -42,7 +43,7 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
     @NonNull
     @Override
     public EntregaTareaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(context).inflate(R.layout.entrega_tarea_item, parent,false);
+        View mView = LayoutInflater.from(context).inflate(com.acevedo.educonnect.commonresources.R.layout.entrega_tarea_item, parent,false);
         mView.setOnClickListener(this);
         return new EntregaTareaHolder(mView);
     }
@@ -85,8 +86,8 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
             super(itemView);
             view = itemView;
             tvEstudiante = view.findViewById(R.id.tvEstudiante);
-            ivEntregaTarea = view.findViewById(R.id.ivEntregaTarea);
-            cvEntregaTarea = view.findViewById(R.id.cvEntregaTarea);
+            ivEntregaTarea = view.findViewById(com.acevedo.educonnect.commonresources.R.id.ivEntregaTarea);
+            cvEntregaTarea = view.findViewById(com.acevedo.educonnect.commonresources.R.id.cvEntregaTarea);
 
         }
 

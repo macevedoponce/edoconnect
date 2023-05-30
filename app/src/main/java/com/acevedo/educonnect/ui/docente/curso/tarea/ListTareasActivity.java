@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.acevedo.educonnect.Adapters.TareaAdapter;
+import com.acevedo.educonnect.commonresources.Adapters.TareaAdapter;
 import com.acevedo.educonnect.commonresources.Clases.Tarea;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
@@ -137,7 +137,7 @@ public class ListTareasActivity extends AppCompatActivity {
     private void dialogMenu(View view) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_menu_tarea);
+        dialog.setContentView(com.acevedo.educonnect.commonresources.R.layout.dialog_menu_tarea);
 
 
         //datos del item seleccionado
@@ -148,9 +148,9 @@ public class ListTareasActivity extends AppCompatActivity {
         int estado = tareaList.get(rvTareas.getChildAdapterPosition(view)).getEstado();
 
 
-        CardView cvVerEntregables = dialog.findViewById(R.id.cvVerEntregables);
-        CardView cvVistaPrevia = dialog.findViewById(R.id.cvVistaPrevia);
-        CardView cvEditarTarea = dialog.findViewById(R.id.cvEditarTarea);
+        CardView cvVerEntregables = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvVerEntregables);
+        CardView cvVistaPrevia = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvVistaPrevia);
+        CardView cvEditarTarea = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvEditarTarea);
 
         cvVerEntregables.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,12 +195,12 @@ public class ListTareasActivity extends AppCompatActivity {
     private void vistaPrevia(String titulo, String descripcion,String fecha_limite) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_detalle_tarea);
+        dialog.setContentView(com.acevedo.educonnect.commonresources.R.layout.dialog_detalle_tarea);
 
         TextView tvTituloTarea = dialog.findViewById(R.id.tvTituloTarea);
-        TextView tvFechaLimiteTarea = dialog.findViewById(R.id.tvFechaLimiteTarea);
-        TextView tvDescripcionTarea = dialog.findViewById(R.id.tvDescripcionTarea);
-        ImageView ivCloseDialogDetalleTarea = dialog.findViewById(R.id.ivCloseDialogDetalleTarea);
+        TextView tvFechaLimiteTarea = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvFechaLimiteTarea);
+        TextView tvDescripcionTarea = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.tvDescripcionTarea);
+        ImageView ivCloseDialogDetalleTarea = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.ivCloseDialogDetalleTarea);
 
 
         tvTituloTarea.setText(titulo);
