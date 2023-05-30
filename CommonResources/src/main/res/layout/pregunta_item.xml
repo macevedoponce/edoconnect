@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPreguntas"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="5dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:elevation="10dp">
+        <TextView
+            android:id="@+id/txtTituloPregunta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titulo de la pregunta"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/primary"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

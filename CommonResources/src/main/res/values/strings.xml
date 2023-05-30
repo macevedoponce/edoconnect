@@ -56,4 +56,10 @@
     <string name="title_aprende">Aprende</string>
     <string name="title_apunte">Apuntes</string>
 
+    <!--    crea pregunta-->
+    <string name="crear_pregunta">Crear Pregunta</string>
+    <string name="ingrese_pregunta">Ingrese Pregunta</string>
+    <string name="alternativa_correcta">Alternativa Correcta</string>
+    <string name="alternativa_incorrecta">Alternativa Incorrecta</string>
+
 </resources>
