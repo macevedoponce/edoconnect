@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.docente.CrearPregunta">
+    <LinearLayout
+        android:id="@+id/barTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llRegresarPregunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_volver"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volver"
+                android:textColor="@color/primary"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/app_name"
+                android:textAlignment="textEnd"
+                android:textAllCaps="true"
+                android:textColor="@color/secondary"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="@color/primary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crear_pregunta"
+            android:textSize="36sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="right"-->
+<!--            android:text="Puntos"/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/tbMenosPoints"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:textOff=""
+                android:textOn=""
+                android:background="@drawable/ic_remove" />
+            <TextView
+                android:id="@+id/txtPuntajePregunta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <ToggleButton
+                android:id="@+id/tbMasPoints"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:textOff=""
+                android:textOn=""
+                android:background="@drawable/ic_add" />
+        </LinearLayout>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPregunta"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtPregunta"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/ingrese_pregunta"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicPregunta"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                android:outlineSpotShadowColor="#016505"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAlterCorrecta"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtAlterCorrecta"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/alternativa_correcta"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicalterCorrecta"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                android:outlineSpotShadowColor="#830000"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAlterIncorrecta"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtalterIncorrecta1"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/alternativa_incorrecta"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicAlterIncorrecta"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                android:outlineSpotShadowColor="#830000"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAlterIncorrecta2"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtalterIncorrecta2"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/alternativa_incorrecta"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicAlterIncorrecta2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                android:outlineSpotShadowColor="#830000"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAlterIncorrecta3"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtalterIncorrecta3"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/alternativa_incorrecta"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicAlterIncorrecta3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilRetroalimentacion"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        style="@style/Widget.Design.TextInputLayout"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtRetroalimentacion"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/poppins_light"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textMultiLine"
+                            android:hint="@string/retroalimentacion"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ToggleButton
+                        android:id="@+id/tbMicretroalimentacion"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="@drawable/ic_mic" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCrearPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/primary"
+        android:layout_gravity="bottom"
+        android:foreground="?attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/crear_pregunta"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
