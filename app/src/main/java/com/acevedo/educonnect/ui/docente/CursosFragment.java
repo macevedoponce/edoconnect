@@ -1,23 +1,32 @@
 package com.acevedo.educonnect.ui.docente;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.CursoAdapter;
 import com.acevedo.educonnect.Clases.Curso;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
+import com.acevedo.educonnect.ui.docente.curso.asistencia.RegistrarAsistenciaActivity;
+import com.acevedo.educonnect.ui.docente.curso.entregaTarea.ListEntregaTareasActivity;
+import com.acevedo.educonnect.ui.docente.curso.tarea.CrearTareaActivity;
 import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -87,12 +96,7 @@ public class CursosFragment extends Fragment {
                     adapter.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
-                            int id = cursosList.get(rvCursos.getChildAdapterPosition(view)).getId();
-
-                            Intent i = new Intent(getContext(), ListTareasActivity.class);
-                            i.putExtra("id_curso",id);
-                            startActivity(i);
+                            dialogMenu(view);
                         }
                     });
 
@@ -110,5 +114,48 @@ public class CursosFragment extends Fragment {
             }
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    private void dialogMenu(View view) {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_menu_curso);
+
+
+        //datos del item seleccionado
+        int id = cursosList.get(rvCursos.getChildAdapterPosition(view)).getId();
+
+
+        CardView cvTareas = dialog.findViewById(R.id.cvTareas);
+        CardView cvAsistencia = dialog.findViewById(R.id.cvAsistencia);
+
+        cvTareas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent i = new Intent(getContext(), ListTareasActivity.class);
+                i.putExtra("id_curso",id);
+                startActivity(i);
+            }
+        });
+
+        cvAsistencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent i = new Intent(getContext(), RegistrarAsistenciaActivity.class);
+                i.putExtra("id_curso",id);
+                startActivity(i);
+            }
+        });
+
+
+
+        dialog.show();
+        dialog.setCancelable(true);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
+        dialog.getWindow().setGravity(Gravity.CENTER);
     }
 }

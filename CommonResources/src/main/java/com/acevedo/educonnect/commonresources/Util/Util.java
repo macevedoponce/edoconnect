@@ -9,4 +9,6 @@ public class Util {
     public static final String RUTA_ACTUALIZAR_TAREA=RUTA+"/actualizar_tarea.php";
     public static final String RUTA_ENTREGA_TAREAS=RUTA+"/list_entregas_tarea.php";
     public static final String RUTA_CALIFICAR_TAREA=RUTA+"/calificar_tarea.php";
+    public static final String RUTA_ESTUDIANTES_CURSO=RUTA+"/estudiantes_curso.php";
+    public static final String RUTA_REGISTRAR_ASISTENCIA=RUTA+"/registrar_asistencia.php";
 }

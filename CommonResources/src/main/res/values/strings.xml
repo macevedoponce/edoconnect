@@ -27,6 +27,10 @@
     <string name="volver">Volver</string>
     <string name="aceptar">Aceptar</string>
 
+    <!--    Cursos-->
+    <string name="ver_tareas">Ver Tareas</string>
+    <string name="registrar_asistencia">Registrar Asistencia</string>
+
     <!--    Tarea-->
     <string name="tarea">Tareas</string>
     <string name="menu_pregunta">¡Que desea hacer!</string>
