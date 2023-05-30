@@ -105,6 +105,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/tvNota"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="60sp"
@@ -137,10 +138,10 @@
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/success"
-                android:textSize="34sp" />
+                android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/tvTarea"
+                android:id="@+id/tvTituloTarea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -199,45 +200,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/ivContenido"
+            <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+                android:id="@+id/ivContenidoEstudiante"
                 android:layout_width="match_parent"
                 android:visibility="gone"
                 android:scaleType="centerCrop"
                 android:layout_height="match_parent" />
 
             <WebView
-                android:id="@+id/webView"
+                android:id="@+id/webViewEstudiante"
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
 
         </androidx.cardview.widget.CardView>
-
-        <!-- CardView en la esquina superior derecha -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvFullScreen"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="9dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_full_screen"
-                android:layout_gravity="center"/>
-
-
-
-        </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

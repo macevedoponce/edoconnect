@@ -144,7 +144,11 @@ public class ListTareasActivity extends AppCompatActivity {
         }
 
         if(retroalimentacion.length() >= 5 && nota > 0){
-            Intent intent = new Intent(this, TrabajoRevisadoActivity.class);
+            Intent intent = new Intent(ListTareasActivity.this, TrabajoRevisadoActivity.class);
+            intent.putExtra("nota", nota);
+            intent.putExtra("titulo_tarea", titulo);
+            intent.putExtra("retroalimentacion", retroalimentacion);
+            intent.putExtra("url_trabajo", url_trabajo);
             startActivity(intent);
         }
     }
