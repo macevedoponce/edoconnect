@@ -2,20 +2,16 @@ package com.acevedo.educonnect.Adapters;
 
 import android.content.Context;
 import android.util.TypedValue;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.acevedo.educonnect.Clases.EntregaTareas;
+import com.acevedo.educonnect.commonresources.Clases.EntregaTareas;
 import com.acevedo.educonnect.R;
 import com.android.volley.RequestQueue;
 import com.bumptech.glide.Glide;

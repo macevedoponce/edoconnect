@@ -3,13 +3,16 @@ package com.acevedo.educonnect.ui.docente.curso.asistencia;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.EstudianteAdapter;
-import com.acevedo.educonnect.Clases.Estudiante;
+import com.acevedo.educonnect.commonresources.Clases.Estudiante;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
@@ -34,6 +37,9 @@ import java.util.Map;
 
 public class RegistrarAsistenciaActivity extends AppCompatActivity {
 
+    SwipeRefreshLayout srlActualizarEstudiantes;
+    LinearLayout llRegresar;
+
     RecyclerView rvEstudiantes;
     RequestQueue requestQueue;
     List<Estudiante> estudianteList;
@@ -50,12 +56,30 @@ public class RegistrarAsistenciaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_asistencia);
+        srlActualizarEstudiantes = findViewById(R.id.srlActualizarEstudiantes);
+        llRegresar = findViewById(R.id.llRegresar);
         rvEstudiantes = findViewById(R.id.rvEstudiantes);
         rvEstudiantes.setHasFixedSize(true);
         rvEstudiantes.setLayoutManager(new LinearLayoutManager(this));
         estudianteList = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
         cargarEstudiantes();
+
+        srlActualizarEstudiantes.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                estudianteList.clear();
+                cargarEstudiantes();
+                srlActualizarEstudiantes.setRefreshing(false);
+            }
+        });
+
+        llRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void cargarEstudiantes() {

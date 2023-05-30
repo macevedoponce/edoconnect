@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.TareaAdapter;
-import com.acevedo.educonnect.Clases.Tarea;
+import com.acevedo.educonnect.commonresources.Clases.Tarea;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.curso.entregaTarea.ListEntregaTareasActivity;

@@ -1,4 +1,4 @@
-package com.acevedo.educonnect.Clases;
+package com.acevedo.educonnect.commonresources.Clases;
 
 public class EntregaTareas {
     int id;

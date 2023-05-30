@@ -11,7 +11,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.acevedo.educonnect.Clases.Tarea;
+import com.acevedo.educonnect.commonresources.Clases.Tarea;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;

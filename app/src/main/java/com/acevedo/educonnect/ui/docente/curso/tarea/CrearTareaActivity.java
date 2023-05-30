@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.acevedo.educonnect.Clases.Meses;
+import com.acevedo.educonnect.commonresources.Clases.Meses;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;

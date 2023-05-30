@@ -21,12 +21,10 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.CursoAdapter;
-import com.acevedo.educonnect.Clases.Curso;
+import com.acevedo.educonnect.commonresources.Clases.Curso;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.curso.asistencia.RegistrarAsistenciaActivity;
-import com.acevedo.educonnect.ui.docente.curso.entregaTarea.ListEntregaTareasActivity;
-import com.acevedo.educonnect.ui.docente.curso.tarea.CrearTareaActivity;
 import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;

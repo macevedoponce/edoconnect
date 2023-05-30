@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.acevedo.educonnect.Clases.Curso;
+import com.acevedo.educonnect.commonresources.Clases.Curso;
 import com.acevedo.educonnect.R;
 import com.bumptech.glide.Glide;
 

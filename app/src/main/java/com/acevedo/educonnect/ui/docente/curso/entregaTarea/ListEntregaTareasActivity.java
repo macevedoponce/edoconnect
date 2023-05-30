@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.acevedo.educonnect.Adapters.EntregaTareaAdapter;
-import com.acevedo.educonnect.Clases.EntregaTareas;
+import com.acevedo.educonnect.commonresources.Clases.EntregaTareas;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;

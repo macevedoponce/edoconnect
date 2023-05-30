@@ -1,4 +1,4 @@
-package com.acevedo.educonnect.Clases;
+package com.acevedo.educonnect.commonresources.Clases;
 
 import java.util.ArrayList;
 
