@@ -195,9 +195,12 @@ public class CrearPreguntaActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 progreso.dismiss();
 
-                Intent intent = new Intent(CrearPreguntaActivity.this, PreguntasFragment.class);
+//                Intent intent = new Intent(CrearPreguntaActivity.this, PreguntasFragment.class);
+//                Toast.makeText(CrearPreguntaActivity.this, "Registro Exitoso", Toast.LENGTH_LONG).show();
+//                startActivity(intent);
+                onBackPressed();
                 Toast.makeText(CrearPreguntaActivity.this, "Registro Exitoso", Toast.LENGTH_LONG).show();
-                startActivity(intent);
+                finish();
 
             }
         }, new Response.ErrorListener() {
