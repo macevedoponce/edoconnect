@@ -9,8 +9,14 @@
         android:label="@string/app_estudiante"
         android:roundIcon="@mipmap/ic_educonnect_estudiante_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.EduConnect">
+        android:theme="@style/Theme.EduConnect"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.cursos.trabajo.TrabajoRevisadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.cursos.ListTareasActivity"
+            android:exported="false" />
         <activity
             android:name=".Login.LoginActivity"
             android:exported="false" />
@@ -25,7 +31,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_estudiante"></activity>
+            android:label="@string/app_estudiante" />
     </application>
 
 </manifest>
