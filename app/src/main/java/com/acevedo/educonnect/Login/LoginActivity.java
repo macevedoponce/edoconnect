@@ -11,26 +11,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.acevedo.educonnect.MainActivity;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,11 +61,13 @@ public class LoginActivity extends AppCompatActivity {
     private void validarUsuario() {
         String dni = edtCorreo.getText().toString();
         String password = edtPassword.getText().toString();
+        int rol = getIntent().getIntExtra("tipo_usuario",0);
 
         if(!dni.isEmpty() && !password.isEmpty()) {
             String url = Util.RUTA_LOGIN + "?" +
                     "usuario=" + dni +
-                    "&contrasena=" + password;
+                    "&contrasena=" + password +
+                    "&tipo_usuario="+rol;
 
             url = url.replace(" ", "%20");
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -84,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                     JSONArray json = response.optJSONArray("usuario");
                     JSONObject jsonObject = null;
 
-                    SharedPreferences preferences = getSharedPreferences("usuarioLogin", Context.MODE_PRIVATE);
+                    SharedPreferences preferences = getSharedPreferences("usuarioLoginDocente", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     try {
                         jsonObject = json.getJSONObject(0);
@@ -104,10 +101,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     //fin guardar datos de usuario
-
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                     finish();
+
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -126,14 +123,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void recuperarPreferencias() {
-        SharedPreferences preferences = getSharedPreferences("usuarioLogin", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("usuarioLoginDocente", Context.MODE_PRIVATE);
         String username = preferences.getString("dni","");
         String password = preferences.getString("password","");
         edtCorreo.setText(username);
         edtPassword.setText(password);
 
         if(!username.equals("") && !password.equals("")){
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, com.acevedo.educonnect.MainActivity.class);
             startActivity(i);
             finish();
         }

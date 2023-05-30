@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">EduConnect</string>
+    <string name="app_docente">Docente</string>
+    <string name="app_estudiante">Estudiante</string>
+
     <string name="felicitaciones">Felicitaciones</string>
 
     <!-- Login Activity -->
@@ -39,5 +42,14 @@
     <string name="fecha_limite_entrega">Fecha limite de entrega</string>
     <string name="registro_exitoso">Tarea registrada correctamente</string>
 
+
+    <!--    Estudiante-->
+    <string name="title_home">Felicitaciones</string>
+    <string name="title_dashboard">Felicitaciones</string>
+    <string name="title_notifications">Felicitaciones</string>
+
+    <!--    Fragment Estudiante-->
+    <string name="title_aprende">Aprende</string>
+    <string name="title_apunte">Apuntes</string>
 
 </resources>

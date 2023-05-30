@@ -26,8 +26,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         //animacion
-        Animation animacion1 = AnimationUtils.loadAnimation(this, R.anim.des_top);
-        Animation animacion2 = AnimationUtils.loadAnimation(this, R.anim.des_bot);
+        Animation animacion1 = AnimationUtils.loadAnimation(this, com.acevedo.educonnect.commonresources.R.anim.des_top);
+        Animation animacion2 = AnimationUtils.loadAnimation(this, com.acevedo.educonnect.commonresources.R.anim.des_bot);
 
         txtDerechos = findViewById(R.id.txtDerechos);
         txtAño = findViewById(R.id.txtAño);
@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.putExtra("tipo_user",1);
+                i.putExtra("tipo_usuario",1);
                 startActivity(i);
                 finish();
             }

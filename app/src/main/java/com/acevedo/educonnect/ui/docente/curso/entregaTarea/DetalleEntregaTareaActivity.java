@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.speech.RecognizerIntent;
 import android.view.Gravity;
 import android.view.View;
@@ -24,8 +23,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
-import com.acevedo.educonnect.ui.docente.curso.tarea.CrearTareaActivity;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -250,7 +248,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
         dialog.setCancelable(false);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.CENTER);
     }
 

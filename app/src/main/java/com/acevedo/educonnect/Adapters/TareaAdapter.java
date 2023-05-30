@@ -1,12 +1,9 @@
 package com.acevedo.educonnect.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -14,18 +11,15 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.acevedo.educonnect.Clases.Curso;
 import com.acevedo.educonnect.Clases.Tarea;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
-import com.acevedo.educonnect.ui.docente.curso.tarea.CrearTareaActivity;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
 import java.util.HashMap;
 import java.util.List;

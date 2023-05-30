@@ -8,8 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_educonnect_docente"
+        android:label="@string/app_docente"
+        android:roundIcon="@mipmap/ic_educonnect_docente_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EduConnect"
         android:usesCleartextTraffic="true"
@@ -30,9 +31,6 @@
             android:name=".ui.docente.curso.tarea.ListTareasActivity"
             android:exported="false" />
         <activity
-            android:name=".Splash.SplashDocenteActivity"
-            android:exported="false" />
-        <activity
             android:name=".Login.LoginActivity"
             android:exported="false" />
         <activity
@@ -46,7 +44,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_docente" />
     </application>
 
 </manifest>

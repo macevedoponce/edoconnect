@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_inicio">
+
+    <fragment
+        android:id="@+id/navigation_aprende"
+        android:name="com.acevedo.educonnect.estudiante.ui.AprendeFragment"
+        android:label="@string/title_aprende"
+        tools:layout="@layout/fragment_aprende" />
+
+    <fragment
+        android:id="@+id/navigation_curso"
+        android:name="com.acevedo.educonnect.estudiante.ui.CursosFragment"
+        android:label="@string/title_cursos"
+        tools:layout="@layout/fragment_cursos" />
+
+    <fragment
+        android:id="@+id/navigation_inicio"
+        android:name="com.acevedo.educonnect.estudiante.ui.InicioFragment"
+        android:label="@string/title_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/navigation_apunte"
+        android:name="com.acevedo.educonnect.estudiante.ui.ApuntesFragment"
+        android:label="@string/title_apunte"
+        tools:layout="@layout/fragment_apuntes" />
+
+    <fragment
+        android:id="@+id/navigation_cuenta"
+        android:name="com.acevedo.educonnect.estudiante.ui.CuentaFragment"
+        android:label="@string/title_cuenta"
+        tools:layout="@layout/fragment_cuenta" />
+</navigation>

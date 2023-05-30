@@ -37,7 +37,7 @@ public class InicioFragment extends Fragment {
     }
 
     private void cargarPreferencias() {
-        SharedPreferences preferences = getContext().getSharedPreferences("usuarioLogin", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences("usuarioLoginDocente", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombres","");
         String apellidos = preferences.getString("apellidos","");
         String dni = preferences.getString("dni","");

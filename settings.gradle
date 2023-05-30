@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "EduConnect"
 include ':app'
+include ':estudiante'
+include ':CommonResources'

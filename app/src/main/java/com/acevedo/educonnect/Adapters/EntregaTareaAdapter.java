@@ -118,7 +118,7 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
                 );
 
                 cvEntregaTarea.setStrokeWidth((int) strokeWidthInPixels);
-                cvEntregaTarea.setStrokeColor(ContextCompat.getColor(context, R.color.success));
+                cvEntregaTarea.setStrokeColor(ContextCompat.getColor(context, com.acevedo.educonnect.commonresources.R.color.success));
             }
         }
     }

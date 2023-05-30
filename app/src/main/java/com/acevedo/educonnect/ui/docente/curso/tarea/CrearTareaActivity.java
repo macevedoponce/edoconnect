@@ -15,7 +15,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
@@ -25,7 +24,7 @@ import android.widget.ToggleButton;
 
 import com.acevedo.educonnect.Clases.Meses;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -254,8 +253,8 @@ public class CrearTareaActivity extends AppCompatActivity {
                     tvFLE.setVisibility(View.VISIBLE);
                     tvFechaLimiteEntrega.setText(fechaSeleccionada);
                     tvFechaLimiteEntrega.setTextSize(20);
-                    cvFechaLimiteEntrega.setCardBackgroundColor(getResources().getColor(R.color.selected));
-                    tvFechaLimiteEntrega.setTextColor(getResources().getColor(R.color.primary));
+                    cvFechaLimiteEntrega.setCardBackgroundColor(getResources().getColor(com.acevedo.educonnect.commonresources.R.color.selected));
+                    tvFechaLimiteEntrega.setTextColor(getResources().getColor(com.acevedo.educonnect.commonresources.R.color.primary));
                     dialog.dismiss();
                 }
 
@@ -271,7 +270,7 @@ public class CrearTareaActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 
@@ -355,7 +354,7 @@ public class CrearTareaActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.CENTER);
     }
 }

@@ -10,13 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.EntregaTareaAdapter;
 import com.acevedo.educonnect.Clases.EntregaTareas;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
-import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;

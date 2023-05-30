@@ -27,6 +27,16 @@
         android:orientation="vertical"
         android:layout_weight="1"
         >
+        <TextView
+            android:id="@+id/txtDocentes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Docentes"
+            android:textAllCaps="true"
+            android:textColor="@color/selected"
+            android:textSize="20sp" />
+
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="171dp"

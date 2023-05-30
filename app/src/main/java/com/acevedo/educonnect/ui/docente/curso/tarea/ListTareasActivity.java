@@ -23,7 +23,7 @@ import android.widget.Toast;
 import com.acevedo.educonnect.Adapters.TareaAdapter;
 import com.acevedo.educonnect.Clases.Tarea;
 import com.acevedo.educonnect.R;
-import com.acevedo.educonnect.Util.Util;
+import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.curso.entregaTarea.ListEntregaTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -188,7 +188,7 @@ public class ListTareasActivity extends AppCompatActivity {
         dialog.setCancelable(true);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.CENTER);
     }
 
@@ -217,7 +217,7 @@ public class ListTareasActivity extends AppCompatActivity {
         dialog.show();
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 }
