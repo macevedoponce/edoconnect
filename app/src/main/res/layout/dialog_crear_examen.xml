@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_bottom">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilExamen"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNuevoExamen"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_light"
+                    android:layout_height="wrap_content"
+                    android:inputType="text|textMultiLine"
+                    android:hint="@string/nuevo_examen"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ToggleButton
+                android:id="@+id/tbMicCrearExamen"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:textOff=""
+                android:textOn=""
+                android:background="@drawable/ic_mic" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDescripcionExamen"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNuevoDescrpExamen"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/poppins_light"
+                android:layout_height="wrap_content"
+                android:inputType="text|textMultiLine"
+                android:hint="@string/descrip_examen"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <ToggleButton
+            android:id="@+id/tbMicCrearDescrpExamen"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/ic_mic" />
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCrearExamen"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/primary"
+        android:layout_gravity="bottom"
+        android:foreground="?attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/Siguiente"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

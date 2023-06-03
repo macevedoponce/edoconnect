@@ -39,4 +39,12 @@
     <string name="alternativa_correcta">Alternativa Correcta</string>
     <string name="alternativa_incorrecta">Alternativa Incorrecta</string>
     <string name="retroalimentacion">Retroalimentación</string>
+    <string name="Siguiente">Siguiente</string>
+    <string name="nuevo_examen">Nuevo Examen</string>
+    <string name="preguntas">Preguntas</string>
+    <string name="guardar_preguntas">Guardar Preguntas</string>
+    <string name="ver_examen">Ver Examen</string>
+    <string name="eliminar_examen">Eliminar Examen</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="descrip_examen">Descripcion de Examen</string>
 </resources>
