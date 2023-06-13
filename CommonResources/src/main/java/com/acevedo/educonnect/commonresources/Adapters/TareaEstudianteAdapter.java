@@ -64,7 +64,7 @@ public class TareaEstudianteAdapter extends RecyclerView.Adapter<TareaEstudiante
         int nota = tarea.getNota();
 
         holder.setTitulo(titulo);
-        if(url_trabajo.length() >= 10){
+        if(url_trabajo.length() > 60){
             holder.tbEstadoTarea.setChecked(true);
         }
 

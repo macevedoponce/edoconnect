@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,7 +48,8 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
     LinearLayout llRegresar;
     String nombres, apellidos, retroalimentaicon,url_trabajo;
 
-    TextView tvEstudiante,tvNota;
+    TextView tvEstudiante;
+    EditText etNota;
     CardView cvFullScreen,cvMas,cvMenos,cvGuardarNota;
     ImageView ivContenido;
     ToggleButton tbMicRetroalimenacion;
@@ -67,7 +69,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
         llRegresar = findViewById(R.id.llRegresar);
         webView = findViewById(R.id.webView);
         tvEstudiante = findViewById(R.id.tvEstudiante);
-        tvNota = findViewById(R.id.tvNota);
+        etNota = findViewById(R.id.etNota);
         cvFullScreen = findViewById(R.id.cvFullScreen);
         cvMenos = findViewById(R.id.cvMenos);
         cvMas = findViewById(R.id.cvMas);
@@ -94,7 +96,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
     private void cargarDatos() {
         tvEstudiante.setText(nombres + " " + apellidos);
         nota_estudiante = nota;
-        tvNota.setText(nota_estudiante+"");
+        etNota.setText(nota_estudiante+"");
         tvEstudiante.setText(nombres + " " + apellidos);
         if(!retroalimentaicon.isEmpty() && retroalimentaicon.length()>=5){
             edtRetroalimentacion.setText(retroalimentaicon);
@@ -154,16 +156,16 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
         }
 
         if(nota_estudiante >= 1 && nota_estudiante <=20){
-            tvNota.setText(nota_estudiante+"");
+            etNota.setText(nota_estudiante+"");
         }else{
             if (nota_estudiante<=0){
                 nota_estudiante = 0;
-                tvNota.setText(nota_estudiante+"");
+                etNota.setText(nota_estudiante+"");
             }
 
             if (nota_estudiante>=20){
                 nota_estudiante = 20;
-                tvNota.setText(nota_estudiante+"");
+                etNota.setText(nota_estudiante+"");
             }
 
         }
@@ -172,7 +174,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
     private void guardarNota() {
 
         String retroalimentacion_campo = edtRetroalimentacion.getText().toString();
-        int nota_campo = Integer.parseInt(tvNota.getText().toString());
+        int nota_campo = Integer.parseInt(etNota.getText().toString());
 
         if(!retroalimentacion_campo.isEmpty() && retroalimentacion_campo.length() >= 6){
             if(nota_campo != 0){

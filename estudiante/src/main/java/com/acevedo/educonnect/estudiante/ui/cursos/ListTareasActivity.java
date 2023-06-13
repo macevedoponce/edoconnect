@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.commonresources.Adapters.TareaAdapter;
@@ -45,6 +46,8 @@ public class ListTareasActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     List<Tarea> tareaList;
 
+    TextView tvContenidoVacio;
+
     int id_curso;
 
     @Override
@@ -53,6 +56,7 @@ public class ListTareasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_tareas);
 
         srlActualizarTareas = findViewById(R.id.srlActualizarTareas);
+        tvContenidoVacio = findViewById(R.id.tvContenidoVacio);
         llRegresar = findViewById(R.id.llRegresar);
         rvTareas = findViewById(R.id.rvTareas);
         rvTareas.setHasFixedSize(true);
@@ -91,6 +95,8 @@ public class ListTareasActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                tvContenidoVacio.setVisibility(View.GONE);
+                rvTareas.setVisibility(View.VISIBLE);
                 try {
                     JSONArray jsonArray = response.getJSONArray("tareas");
                     for(int i = 0; i<jsonArray.length();i++){
@@ -124,7 +130,8 @@ public class ListTareasActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ListTareasActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                rvTareas.setVisibility(View.GONE);
+                tvContenidoVacio.setVisibility(View.VISIBLE);
             }
         });
         requestQueue.add(jsonObjectRequest);
@@ -140,10 +147,10 @@ public class ListTareasActivity extends AppCompatActivity {
         String retroalimentacion = tareaList.get(rvTareas.getChildAdapterPosition(view)).getRetroalimentacion();
         int nota = tareaList.get(rvTareas.getChildAdapterPosition(view)).getNota();
 
-        if(url_trabajo.length() > 10 && nota < 1 && retroalimentacion.length() < 5){
+        if(url_trabajo.length() > 60 && nota < 1 && retroalimentacion.length() < 5){
             Toast.makeText(this, " 1. Trabajo enviado, esperando revision", Toast.LENGTH_SHORT).show();
         }
-        if(url_trabajo.length() < 5){
+        if(url_trabajo.length() < 61){
             Intent intent = new Intent(ListTareasActivity.this, EnviarTrabajoActivity.class);
             intent.putExtra("id_tarea", id);
             intent.putExtra("id_curso", id_curso);

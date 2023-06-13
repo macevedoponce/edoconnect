@@ -106,16 +106,17 @@ public class EntregaTareaAdapter extends RecyclerView.Adapter<EntregaTareaAdapte
         }
 
         public void setEstadoEntrega(String retroalimentacion) {
+            float strokeWidthInSp = 4f; // Valor deseado en sp
+
+            float strokeWidthInPixels = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_SP, strokeWidthInSp, context.getResources().getDisplayMetrics()
+            );
+
+            cvEntregaTarea.setStrokeWidth((int) strokeWidthInPixels);
             if(retroalimentacion.length() >= 10){
-
-                float strokeWidthInSp = 4f; // Valor deseado en sp
-
-                float strokeWidthInPixels = TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_SP, strokeWidthInSp, context.getResources().getDisplayMetrics()
-                );
-
-                cvEntregaTarea.setStrokeWidth((int) strokeWidthInPixels);
                 cvEntregaTarea.setStrokeColor(ContextCompat.getColor(context, com.acevedo.educonnect.commonresources.R.color.success));
+            }else{
+                cvEntregaTarea.setStrokeColor(ContextCompat.getColor(context, R.color.error));
             }
         }
     }
