@@ -39,12 +39,6 @@ public class EnviarTrabajoActivity extends AppCompatActivity {
             }
         });
 
-        cvSubirPDF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(EnviarTrabajoActivity.this, "Subir PDF", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void recepcionarDatos() {
@@ -63,6 +57,16 @@ public class EnviarTrabajoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EnviarTrabajoActivity.this, EnviarFotoActivity.class);
+                intent.putExtra("idTarea", idTarea);
+                intent.putExtra("idCurso", idCurso);
+                startActivity(intent);
+            }
+        });
+
+        cvSubirPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EnviarTrabajoActivity.this, EnviarPdfActivity.class);
                 intent.putExtra("idTarea", idTarea);
                 intent.putExtra("idCurso", idCurso);
                 startActivity(intent);

@@ -31,6 +31,7 @@ import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.commonresources.Util.Util;
@@ -56,30 +57,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EnviarFotoActivity extends AppCompatActivity {
-    private static final int CAMERA_PERMISSION_CODE = 100;
-    private static final int CAMERA_REQUEST_CODE = 200;
+
+    LinearLayout llRegresar;
     CardView cvTomarFoto, cvSubirTarea;
     ImageView ivFotoTarea;
 
     RequestQueue requestQueue;
     StringRequest stringRequest;
 
-    private String currentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enviar_foto);
+        llRegresar = findViewById(R.id.llRegresar);
         cvTomarFoto = findViewById(R.id.cvTomarFoto);
         cvSubirTarea = findViewById(R.id.cvSubirTarea);
         ivFotoTarea = findViewById(R.id.ivFotoTarea);
         requestQueue = Volley.newRequestQueue(this);
-//        //validar permiso de camará
-//        if(validarPermisos()){
-//            cvTomarFoto.setEnabled(true);
-//        }else{
-//            cvTomarFoto.setEnabled(false);
-//        }
+
+        llRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         cvTomarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +91,7 @@ public class EnviarFotoActivity extends AppCompatActivity {
         });
 
 
+        cvSubirTarea.setVisibility(View.GONE);
 
         cvSubirTarea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +113,7 @@ public class EnviarFotoActivity extends AppCompatActivity {
             if (data != null) {
                 Uri selectedImageUri = data.getData();
                 ivFotoTarea.setImageURI(selectedImageUri);
+                cvSubirTarea.setVisibility(View.VISIBLE);
             }
         }
     }
@@ -125,7 +129,7 @@ public class EnviarFotoActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("usuarioLoginEstudiante", Context.MODE_PRIVATE);
         int idEstudiante = preferences.getInt("id",0);
         int idTarea = getIntent().getIntExtra("idTarea",0);
-        int idCurso = getIntent().getIntExtra("idTarea",0);
+        int idCurso = getIntent().getIntExtra("idCurso",0);
 
         String url = Util.RUTA_REGISTRAR_TAREA;
 
@@ -136,6 +140,7 @@ public class EnviarFotoActivity extends AppCompatActivity {
                 intent.putExtra("id_curso",idCurso);
                 startActivity(intent);
                 finish();
+                Toast.makeText(EnviarFotoActivity.this, "Tarea enviada", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override

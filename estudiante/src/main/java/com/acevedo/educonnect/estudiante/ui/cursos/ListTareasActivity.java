@@ -59,8 +59,8 @@ public class ListTareasActivity extends AppCompatActivity {
         rvTareas.setLayoutManager(new LinearLayoutManager(this));
         requestQueue = Volley.newRequestQueue(this);
         tareaList = new ArrayList<>();
-        cargarTareas();
 
+        recepcionarDatos();
         srlActualizarTareas.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -79,10 +79,14 @@ public class ListTareasActivity extends AppCompatActivity {
         
     }
 
+    private void recepcionarDatos() {
+        id_curso = getIntent().getIntExtra("id_curso",0);
+        cargarTareas();
+    }
+
     private void cargarTareas() {
         SharedPreferences preferences = getSharedPreferences("usuarioLoginEstudiante", Context.MODE_PRIVATE);
         int id_usuario = preferences.getInt("id",0);
-        id_curso = getIntent().getIntExtra("id_curso",0);
         String url = Util.RUTA_TAREAS+"?id_curso="+id_curso + "&id_usuario="+id_usuario;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override

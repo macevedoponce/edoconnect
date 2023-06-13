@@ -56,4 +56,6 @@ dependencies {
 
     //zoom imagenes
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+
+
 }

@@ -69,9 +69,6 @@ public class FullScreenTareaActivity extends AppCompatActivity {
 
         }
 
-
-
-
         cvFullScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
