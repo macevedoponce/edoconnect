@@ -71,7 +71,7 @@ public class CursosFragment extends Fragment {
 
     private void cargarCursos() {
 
-        SharedPreferences preferences = getContext().getSharedPreferences("usuarioLogin", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences("usuarioLoginDocente", Context.MODE_PRIVATE);
         int id = preferences.getInt("id",0);
 
         String url = Util.RUTA_CURSOS+"?id_usuario="+id;

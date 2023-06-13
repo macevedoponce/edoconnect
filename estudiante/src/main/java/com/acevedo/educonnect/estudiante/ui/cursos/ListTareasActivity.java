@@ -20,6 +20,7 @@ import com.acevedo.educonnect.commonresources.Adapters.TareaEstudianteAdapter;
 import com.acevedo.educonnect.commonresources.Clases.Tarea;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.estudiante.R;
+import com.acevedo.educonnect.estudiante.ui.cursos.trabajo.EnviarTrabajoActivity;
 import com.acevedo.educonnect.estudiante.ui.cursos.trabajo.TrabajoRevisadoActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -40,7 +41,6 @@ public class ListTareasActivity extends AppCompatActivity {
 
     SwipeRefreshLayout srlActualizarTareas;
     LinearLayout llRegresar;
-    FloatingActionButton fabAgregarTarea;
     RecyclerView rvTareas;
     RequestQueue requestQueue;
     List<Tarea> tareaList;
@@ -140,7 +140,13 @@ public class ListTareasActivity extends AppCompatActivity {
             Toast.makeText(this, " 1. Trabajo enviado, esperando revision", Toast.LENGTH_SHORT).show();
         }
         if(url_trabajo.length() < 5){
-            Toast.makeText(this, "2. No enviaste tarea", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ListTareasActivity.this, EnviarTrabajoActivity.class);
+            intent.putExtra("id_tarea", id);
+            intent.putExtra("id_curso", id_curso);
+            intent.putExtra("titulo_tarea", titulo);
+            intent.putExtra("descripcion_tarea", descripcion);
+            intent.putExtra("fecha_limite_tarea", fecha_limite);
+            startActivity(intent);
         }
 
         if(retroalimentacion.length() >= 5 && nota > 0){

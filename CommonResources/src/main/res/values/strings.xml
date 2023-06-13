@@ -62,4 +62,8 @@
     <string name="alternativa_correcta">Alternativa Correcta</string>
     <string name="alternativa_incorrecta">Alternativa Incorrecta</string>
 
+<!--    tarea estudiante-->
+    <string name="subir_tarea">Subir Tarea</string>
+    <string name="subir_documento">Subir Documento</string>
+    <string name="subir_imagen">Subir Imagen</string>
 </resources>
