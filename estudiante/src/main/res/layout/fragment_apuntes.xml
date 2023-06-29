@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.ApuntesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_apunte" />
+        android:layout_height="100dp"
+        android:backgroundTint="@color/primary">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-</FrameLayout>
+            <View
+                android:layout_width="50dp"
+                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_apunte"
+                android:gravity="center"
+                android:textSize="36sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"/>
+            
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvAddNote"
+                android:layout_width="50dp"
+                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="8dp"
+                >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_add"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            
+            
+        </LinearLayout>
+
+        
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

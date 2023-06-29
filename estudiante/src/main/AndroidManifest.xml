@@ -13,6 +13,9 @@
         android:theme="@style/Theme.EduConnect"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.Apuntes.AgregarApunteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.cursos.trabajo.EnviarPdfActivity"
             android:exported="false" />
         <activity

@@ -13,4 +13,12 @@
     <color name="selected">#BDAA8A</color>
     <color name="success">#4CAF50</color>
     <color name="error">#E61708</color>
+
+<!--    colores aleatorios para aputnes-->
+    <color name="c1">#84FFFF</color>
+    <color name="c2">#FFD180</color>
+    <color name="c3">#F4FF81</color>
+    <color name="c4">#B388FF</color>
+    <color name="c5">#FF8A80</color>
+
 </resources>

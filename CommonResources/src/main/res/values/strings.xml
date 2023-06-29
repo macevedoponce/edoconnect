@@ -66,4 +66,7 @@
     <string name="subir_tarea">Subir Tarea</string>
     <string name="subir_documento">Subir Documento</string>
     <string name="subir_imagen">Subir Imagen</string>
+
+<!--    apuntes-->
+
 </resources>

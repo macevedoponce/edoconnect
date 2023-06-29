@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_dialog_bottom"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Agregar Apunte"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:textColor="@color/primary"
+            android:textSize="20sp"
+            />
+
+        <ImageView
+            android:id="@+id/ivCloseDialogDetalleTarea"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_close"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTitleDialog"
+            android:layout_width="match_parent"
+            android:hint="Titulo"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietTitleDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNoteDialog"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:hint="Descripción"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietNoteDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvGuardarApunte"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/primary"
+            android:layout_gravity="bottom"
+            android:foreground="?attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="Guardar Apunte"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+</LinearLayout>
