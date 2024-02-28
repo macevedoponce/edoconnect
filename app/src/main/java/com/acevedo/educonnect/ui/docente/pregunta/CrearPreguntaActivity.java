@@ -18,6 +18,8 @@ import android.widget.ToggleButton;
 import com.acevedo.educonnect.R;
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.PreguntasFragment;
+import com.acevedo.educonnect.ui.docente.curso.entregaTarea.DetalleEntregaTareaActivity;
+import com.acevedo.educonnect.ui.docente.curso.entregaTarea.FullScreenTareaActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -32,14 +34,15 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class CrearPreguntaActivity extends AppCompatActivity {
+public class CrearPreguntaActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextInputEditText pregunta,respuestaCorrecta,respuesIncorrecta1,respuestaIncorrecta2,respuestaIncorrecta3,retroalimentacion;
-    CardView btncrearPregunta;
+    CardView btncrearPregunta, cvMenos, cvMas;
     TextView txtPuntaje;
     ToggleButton micPregunta,micrespuestaCorrecta,micRespuesIncorrecta1,micRespuestaIncorrecta2,micRespuestaIncorrecta3,micRetroalimentacion;
     LinearLayout volver;
     int botonID = -1;
+    int puntaje_pregunta = 0;
 
     RequestQueue requestQueue;
 
@@ -60,6 +63,8 @@ public class CrearPreguntaActivity extends AppCompatActivity {
         respuestaIncorrecta2 = findViewById(R.id.edtalterIncorrecta2);
         respuestaIncorrecta3 = findViewById(R.id.edtalterIncorrecta3);
         retroalimentacion = findViewById(R.id.edtRetroalimentacion);
+        cvMas = findViewById(R.id.cvMas);
+        cvMenos = findViewById(R.id.cvMenos);
         txtPuntaje = findViewById(R.id.txtPuntajePregunta);
 
         micPregunta = findViewById(R.id.tbMicPregunta);
@@ -68,6 +73,9 @@ public class CrearPreguntaActivity extends AppCompatActivity {
         micRespuestaIncorrecta2 = findViewById(R.id.tbMicAlterIncorrecta2);
         micRespuestaIncorrecta3 = findViewById(R.id.tbMicAlterIncorrecta3);
         micRetroalimentacion = findViewById(R.id.tbMicretroalimentacion);
+
+        cvMas.setOnClickListener(this);
+        cvMenos.setOnClickListener(this);
 
         micPregunta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -226,6 +234,31 @@ public class CrearPreguntaActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.cvMas:
+                puntaje_pregunta++;
 
+                break;
+            case R.id.cvMenos:
+                puntaje_pregunta--;
+                break;
+        }
 
+        if(puntaje_pregunta >= 1 && puntaje_pregunta <=5){
+            txtPuntaje.setText(puntaje_pregunta+"");
+        }else{
+            if (puntaje_pregunta<=1){
+                puntaje_pregunta = 1;
+                txtPuntaje.setText(puntaje_pregunta+"");
+            }
+
+            if (puntaje_pregunta>=5){
+                puntaje_pregunta = 5;
+                txtPuntaje.setText(puntaje_pregunta+"");
+            }
+
+        }
+    }
 }

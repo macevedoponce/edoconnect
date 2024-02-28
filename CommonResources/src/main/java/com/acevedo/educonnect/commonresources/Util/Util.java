@@ -2,7 +2,7 @@ package com.acevedo.educonnect.commonresources.Util;
 
 public class Util {
     //public static final String RUTA="http://192.168.1.46/educonnectAPI"; //local
-    public static final String RUTA="https://macevedoponce.000webhostapp.com/educonnectAPI"; //remoto
+    public static final String RUTA="http://192.168.18.53/eduConnectAPI"; //remoto
     public static final String RUTA_LOGIN=RUTA+"/validar_usuario.php";
     public static final String RUTA_CURSOS=RUTA+"/list_cursos.php";
     public static final String RUTA_CURSOS_ALUMNO=RUTA+"/list_cursos_alumno.php";

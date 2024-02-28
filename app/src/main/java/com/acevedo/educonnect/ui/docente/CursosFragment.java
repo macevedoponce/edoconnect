@@ -123,6 +123,7 @@ public class CursosFragment extends Fragment {
 
         //datos del item seleccionado
         int id = cursosList.get(rvCursos.getChildAdapterPosition(view)).getId();
+        String cur_nombre = cursosList.get(rvCursos.getChildAdapterPosition(view)).getCursoNombre();
 
 
         CardView cvTareas = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvTareas);
@@ -144,6 +145,7 @@ public class CursosFragment extends Fragment {
                 dialog.dismiss();
                 Intent i = new Intent(getContext(), RegistrarAsistenciaActivity.class);
                 i.putExtra("id_curso",id);
+                i.putExtra("cur_nombre",cur_nombre);
                 startActivity(i);
             }
         });

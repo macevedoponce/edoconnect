@@ -109,6 +109,7 @@ public class DetalleEntregaTareaActivity extends AppCompatActivity implements Vi
             webView.setVisibility(View.VISIBLE);
             webView.getSettings().setJavaScriptEnabled(true);
             webView.loadUrl("https://docs.google.com/gview?embedded=true&url=" + url_trabajo);
+            webView.loadUrl(url_trabajo);
 
         }else{
             ivContenido.setVisibility(View.VISIBLE);

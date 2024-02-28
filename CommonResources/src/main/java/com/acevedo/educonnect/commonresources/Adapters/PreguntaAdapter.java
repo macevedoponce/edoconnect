@@ -1,5 +1,6 @@
 package com.acevedo.educonnect.commonresources.Adapters;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,6 +8,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,18 +62,23 @@ public class PreguntaAdapter extends RecyclerView.Adapter<PreguntaAdapter.Pregun
                 Preguntas preguntaSeleccionada = preguntasList.get(holder.getAdapterPosition());
                 List<Alternativas> alternativasPregunta = preguntaSeleccionada.getAlternativas();
 
-                // Crear el AlertDialog y establecer su contenido
-                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.dialog_detalle_pregunta, null);
-                builder.setView(dialogView);
+                //inicio de dialogo
+                final Dialog dialog = new Dialog(v.getContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(com.acevedo.educonnect.commonresources.R.layout.dialog_detalle_pregunta);
+
+//                // Crear el AlertDialog y establecer su contenido
+//                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+//                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.dialog_detalle_pregunta, null);
+//                builder.setView(dialogView);
 
                 // Obtener las vistas del layout del dialog
-                TextView tvTituloDetallePregunta = dialogView.findViewById(R.id.tvTituloDetallePregunta);
-                TextView tvdialogPreguntaCorrecta = dialogView.findViewById(R.id.tvdialogPreguntaCorrecta);
-                TextView tvDialogIncorrecta1 = dialogView.findViewById(R.id.tvDialogIncorrecta1);
-                TextView tvDialogIncorrecta2 = dialogView.findViewById(R.id.tvDialogIncorrecta2);
-                TextView tvDialogIncorrecta3 = dialogView.findViewById(R.id.tvDialogIncorrecta3);
-                ImageView ivCloseDialogDetallePregunta = dialogView.findViewById(R.id.ivCloseDialogDetallePregunta);
+                TextView tvTituloDetallePregunta = dialog.findViewById(R.id.tvTituloDetallePregunta);
+                TextView tvdialogPreguntaCorrecta = dialog.findViewById(R.id.tvdialogPreguntaCorrecta);
+                TextView tvDialogIncorrecta1 = dialog.findViewById(R.id.tvDialogIncorrecta1);
+                TextView tvDialogIncorrecta2 = dialog.findViewById(R.id.tvDialogIncorrecta2);
+                TextView tvDialogIncorrecta3 = dialog.findViewById(R.id.tvDialogIncorrecta3);
+                ImageView ivCloseDialogDetallePregunta = dialog.findViewById(R.id.ivCloseDialogDetallePregunta);
 
                 // Establecer los textos de la pregunta y las alternativas
                 tvTituloDetallePregunta.setText(preguntaSeleccionada.getNombre());
@@ -80,13 +87,6 @@ public class PreguntaAdapter extends RecyclerView.Adapter<PreguntaAdapter.Pregun
                 tvDialogIncorrecta2.setText(alternativasPregunta.get(2).getNombreAlternativa());
                 tvDialogIncorrecta3.setText(alternativasPregunta.get(3).getNombreAlternativa());
 
-                // Mostrar el AlertDialog
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setGravity(Gravity.BOTTOM);
-                dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-
                 // Configurar el botón de cerrar
                 ivCloseDialogDetallePregunta.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -94,6 +94,12 @@ public class PreguntaAdapter extends RecyclerView.Adapter<PreguntaAdapter.Pregun
                         dialog.dismiss();
                     }
                 });
+
+                dialog.show();
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().getAttributes().windowAnimations = com.acevedo.educonnect.commonresources.R.style.DialogAnimation;
+                dialog.getWindow().setGravity(Gravity.BOTTOM);
 
 
 

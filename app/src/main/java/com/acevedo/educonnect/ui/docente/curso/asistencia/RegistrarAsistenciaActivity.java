@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acevedo.educonnect.Adapters.EstudianteAdapter;
@@ -44,6 +45,8 @@ public class RegistrarAsistenciaActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     List<Estudiante> estudianteList;
 
+    TextView tvCurso,tvFechaAsistencia;
+
     JsonObjectRequest jsonObjectRequest;
 
     Date date = new Date();
@@ -57,12 +60,23 @@ public class RegistrarAsistenciaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_asistencia);
         srlActualizarEstudiantes = findViewById(R.id.srlActualizarEstudiantes);
+        tvCurso = findViewById(R.id.tvCurso);
+        tvFechaAsistencia = findViewById(R.id.tvFechaAsistencia);
         llRegresar = findViewById(R.id.llRegresar);
         rvEstudiantes = findViewById(R.id.rvEstudiantes);
         rvEstudiantes.setHasFixedSize(true);
         rvEstudiantes.setLayoutManager(new LinearLayoutManager(this));
         estudianteList = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
+
+
+        String cur_nombre = getIntent().getStringExtra("cur_nombre");
+
+        tvCurso.setText(cur_nombre);
+        tvFechaAsistencia.setText(fechaActual);
+
+
+
         cargarEstudiantes();
 
         srlActualizarEstudiantes.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -150,7 +164,7 @@ public class RegistrarAsistenciaActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Manejar el error de la solicitud (si es necesario)
-                        Toast.makeText(getApplicationContext(), "Error al enviar los datos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error al enviar los datos - " + error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
