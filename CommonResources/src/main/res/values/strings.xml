@@ -29,6 +29,8 @@
 
     <!--    Cursos-->
     <string name="ver_tareas">Ver Tareas</string>
+    <string name="baco_preguntas">Banco de preguntas</string>
+    <string name="examenes">Exámenes</string>
     <string name="registrar_asistencia">Registrar Asistencia</string>
 
     <!--    Tarea-->

@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -58,6 +58,64 @@
                         android:fontFamily="@font/poppins_medium"
                         android:layout_weight="1"
                         android:text="@string/ver_tareas"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvBancoPreguntas"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_weight="1"
+                        android:text="@string/baco_preguntas"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvExamenes"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/primary"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_weight="1"
+                        android:text="@string/examenes"/>
 
                 </LinearLayout>
 

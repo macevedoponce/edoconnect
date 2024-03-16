@@ -2,15 +2,13 @@ package com.acevedo.educonnect.commonresources.Clases;
 
 public class Curso {
     int id;
-    String cursoCodigo;
     String cursoNombre;
     String grado;
     String seccion;
     String img_url;
 
-    public Curso(int id, String cursoCodigo, String cursoNombre, String grado, String seccion, String img_url) {
+    public Curso(int id, String cursoNombre, String grado, String seccion, String img_url) {
         this.id = id;
-        this.cursoCodigo = cursoCodigo;
         this.cursoNombre = cursoNombre;
         this.grado = grado;
         this.seccion = seccion;
@@ -25,13 +23,6 @@ public class Curso {
         this.id = id;
     }
 
-    public String getCursoCodigo() {
-        return cursoCodigo;
-    }
-
-    public void setCursoCodigo(String cursoCodigo) {
-        this.cursoCodigo = cursoCodigo;
-    }
 
     public String getCursoNombre() {
         return cursoNombre;

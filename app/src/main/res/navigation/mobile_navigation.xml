@@ -5,11 +5,6 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_inicio">
 
-    <fragment
-        android:id="@+id/navigation_pregunta"
-        android:name="com.acevedo.educonnect.ui.docente.PreguntasFragment"
-        android:label="@string/title_preguntas"
-        tools:layout="@layout/fragment_preguntas" />
 
     <fragment
         android:id="@+id/navigation_curso"
@@ -23,11 +18,6 @@
         android:label="@string/title_inicio"
         tools:layout="@layout/fragment_inicio" />
 
-    <fragment
-        android:id="@+id/navigation_repaso"
-        android:name="com.acevedo.educonnect.ui.docente.RepasoFragment"
-        android:label="@string/title_repasos"
-        tools:layout="@layout/fragment_repaso" />
 
     <fragment
         android:id="@+id/navigation_cuenta"

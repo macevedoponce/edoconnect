@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.docente.curso.examen.ListExamenesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.docente.curso.examen.BancoPreguntasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.docente.curso.OpcionesCursoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.docente.pregunta.CrearPreguntaActivity"
             android:exported="false" />
         <activity

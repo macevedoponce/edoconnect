@@ -26,6 +26,7 @@ import com.acevedo.educonnect.commonresources.Clases.Curso;
 
 import com.acevedo.educonnect.commonresources.Util.Util;
 import com.acevedo.educonnect.ui.docente.curso.asistencia.RegistrarAsistenciaActivity;
+import com.acevedo.educonnect.ui.docente.curso.examen.BancoPreguntasActivity;
 import com.acevedo.educonnect.ui.docente.curso.tarea.ListTareasActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -83,12 +84,11 @@ public class CursosFragment extends Fragment {
                     for(int i = 0; i<jsonArray.length();i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         int id =jsonObject.getInt("id");
-                        String cursoCodigo = jsonObject.getString("cursoCodigo");
                         String cursoNombre =jsonObject.getString("cursoNombre");
                         String grado =jsonObject.getString("grado");
                         String seccion =jsonObject.getString("seccion");
                         String img_url = jsonObject.getString("img_url");
-                        Curso curso = new Curso(id,cursoCodigo,cursoNombre,grado,seccion,img_url);
+                        Curso curso = new Curso(id,cursoNombre,grado,seccion,img_url);
                         cursosList.add(curso);
                     }
                     CursoAdapter adapter = new CursoAdapter(getContext(),cursosList);
@@ -127,6 +127,8 @@ public class CursosFragment extends Fragment {
 
 
         CardView cvTareas = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvTareas);
+        CardView cvBancoPreguntas = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvBancoPreguntas);
+        CardView cvExamenes = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvExamenes);
         CardView cvAsistencia = dialog.findViewById(com.acevedo.educonnect.commonresources.R.id.cvAsistencia);
 
         cvTareas.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +138,26 @@ public class CursosFragment extends Fragment {
                 Intent i = new Intent(getContext(), ListTareasActivity.class);
                 i.putExtra("id_curso",id);
                 startActivity(i);
+            }
+        });
+
+        cvBancoPreguntas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                Intent i = new Intent(getContext(), BancoPreguntasActivity.class);
+                i.putExtra("id_curso",id);
+                startActivity(i);
+            }
+        });
+
+        cvExamenes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+//                Intent i = new Intent(getContext(), ListExamenesActivity.class);
+//                i.putExtra("id_curso",id);
+//                startActivity(i);
             }
         });
 

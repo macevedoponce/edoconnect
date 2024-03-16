@@ -78,7 +78,7 @@ public class EstudianteAdapter extends RecyclerView.Adapter<EstudianteAdapter.Es
                 }
 
                 //ejecutar funcion registrarAsistencia que esta en ListParticipantesActivity
-                ((RegistrarAsistenciaActivity) radioGroup.getContext()).registrarAsistencia(id_participante,estado);
+                //((RegistrarAsistenciaActivity) radioGroup.getContext()).registrarAsistencia(id_participante,estado);
 
             }
         });
